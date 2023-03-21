@@ -16,7 +16,7 @@ export const Header = ({ image, headline, description }) => (
                     <h1 className="display-5 text-light fw-bold lh-1 mb-3">{headline}</h1>
                     <p className="lead text-light">{description}</p>
                     <div className="text-light d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" className="mainbutton btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+                    <button type="button" className="mainbutton btn btn-primary btn-lg px-4 me-md-2">Read More</button>
                     </div>
                 </div>
                 </div>
