@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, BrowserRouter, Route, Navigate, Link } from "react-router-dom";
+import { PrismicProvider, PrismicToolbar } from "@prismicio/react";
 
-function App() {
+import { client, repositoryName } from "./prismic";
+import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
+import { Post } from "./pages/Post";
+import { Preview } from "./pages/Preview";
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import './App.css';
+/**
+ * Main app component
+ */
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PrismicProvider
+      client={client}
+      internalLinkComponent={({ href, ...props }) => (
+        <Link to={href} {...props} />
+      )}
+    >
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/preview" element={<Preview />} />
+          <Route path="/blog" element={<Navigate to="/" />} />
+          <Route path="/blog/:uid" element={<Post />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <PrismicToolbar repositoryName={repositoryName} />
+    </PrismicProvider>
   );
-}
+};
+
 
 export default App;
