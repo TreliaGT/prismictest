@@ -10,6 +10,7 @@ import { Header } from "../components/Header";
 import { PostList } from "../components/PostList";
 import { NotFound } from "./NotFound";
 
+
 /**
  * Blog homepage component
  */
