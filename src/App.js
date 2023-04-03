@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Post } from "./pages/Post";
 import { Preview } from "./pages/Preview";
+import  Threetest  from "./pages/Threetest";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -25,6 +26,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/preview" element={<Preview />} />
+          <Route path="/three" element={<Threetest />} />
           <Route path="/blog" element={<Navigate to="/" />} />
           <Route path="/blog/:uid" element={<Post />} />
           <Route path="*" element={<NotFound />} />
